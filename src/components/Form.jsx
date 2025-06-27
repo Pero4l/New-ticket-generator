@@ -3,18 +3,34 @@ import uploadIcon from "/icon-upload.svg"
 import infoIcon from "/icon-info.svg"
 
 const Form = () => {
-
-    const [name, setName] =useState('');
-    const [email, setEmail] = useState('');
-    const [github, setGithub] = useState('');
     const [avatar, setAvatar] = useState('');
 
-    // const [formData, setFormData] = useState({
-    //     name: '',
-    //     email: '',
-    //     github: '',
-    //     avatar: null,
-    // });
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        github: '',
+        avatar: '',
+    });
+
+    function inputChange(e){
+        const { name, value } = e.target;
+        const file = e.target.files ? e.target.files[0] : null;
+
+        
+        setFormData((prev) => {
+            return {
+                ...prev,
+                [name]: value,
+                avatar: file ? URL.createObjectURL(file) : prev.avatar
+                
+            }
+        });
+    }
+
+    function submit(e){
+        e.preventDefault();
+        console.log('Form submitted:', formData);
+    }
 
   return (
     <div className='px-5'>
@@ -27,7 +43,7 @@ const Form = () => {
                     <div className=' border border-gray-600 h-12 w-12 rounded-md flex items-center justify-center'>
                         <img src={uploadIcon} alt="upload icon" />
                     </div>
-                    <input type="file" onChange={(e) => setAvatar(e.target.files[0])} name="avatar" id="avatar"  className='opacity-50 cursor-pointer'/>
+                    <input type="file" onChange={inputChange} name="avatar" id="avatar"  className='opacity-0 cursor-pointer'/>
                     <p className='-mt-4 text-gray-400'>Drag and drop or click to upload</p>
                 </div>
                 <div className='flex gap-2 text-gray-400'>
@@ -37,23 +53,23 @@ const Form = () => {
             </div>
             <div className='flex flex-col gap-2 text-xl mb-6'>
                 <label htmlFor="fullName">Full Name</label>
-                <input id="fullName" type="text" value={name} onChange={(e) => setName(e.target.value)} className='rounded-lg border border-gray-400 h-12 p-3 bg-transparent' placeholder='' />
+                <input id="fullName" type="text" name='name'  onChange={inputChange} className='rounded-lg border border-gray-400 h-12 p-3 bg-transparent' placeholder='' />
             </div>
             <div className='flex flex-col gap-2 text-xl mb-6'>
                 <label htmlFor="email">Email Address</label>
-                <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className='rounded-lg  border border-gray-400 h-12 p-3 bg-transparent' placeholder='example@email.com' />
+                <input id="email" type="email" name='email' onChange={inputChange} className='rounded-lg  border border-gray-400 h-12 p-3 bg-transparent' placeholder='example@email.com' />
             </div>
              <div className='flex flex-col gap-2 text-xl mb-6'>
                 <label htmlFor="github">GitHub Username</label>
-                <input id="github" type="text" value={github} onChange={(e) => setGithub(e.target.value)} className='rounded-lg border border-gray-400 h-12 p-3 bg-transparent' placeholder='@yourusername' />
+                <input id="github" type="text" name='github'  onChange={inputChange} className='rounded-lg border border-gray-400 h-12 p-3 bg-transparent' placeholder='@yourusername' />
             </div>
-            <button className='bg-[#F57261] py-3 rounded-lg w-full text-[#0C082B] font-bold text-xl z-[999] relative'>Generate My Ticket</button>
+            <button onClick={submit} className='bg-[#F57261] py-3 rounded-lg w-full text-[#0C082B] font-bold text-xl z-[999] relative'>Generate My Ticket</button>
         </form>
 
         <img className='relative z-50' src={avatar} alt="" />
-    <p> this is for name: {name} </p>
+    {/* <p> this is for name: {name} </p>
     <p> this is for email: {email} </p>
-    <p> this is for github: {github} </p>
+    <p> this is for github: {github} </p> */}
     </div>
   )
 }
