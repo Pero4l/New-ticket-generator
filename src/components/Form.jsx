@@ -2,16 +2,8 @@ import React, { useState } from 'react'
 import uploadIcon from "/icon-upload.svg"
 import infoIcon from "/icon-info.svg"
 
-const Form = () => {
-    const [avatar, setAvatar] = useState('');
-
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        github: '',
-        avatar: '',
-    });
-
+const Form = ({formData, setFormData, isSubmitted, setIsSubmitted}) => {
+    
     function inputChange(e){
         const { name, value } = e.target;
         const file = e.target.files ? e.target.files[0] : null;
@@ -30,7 +22,12 @@ const Form = () => {
     function submit(e){
         e.preventDefault();
         console.log('Form submitted:', formData);
+
+        setIsSubmitted(true);
     }
+
+    console.log(formData.avatar);
+    
 
   return (
     <div className='px-5'>
@@ -41,7 +38,7 @@ const Form = () => {
                 <label htmlFor="avatar" className='text-xl'>Upload Avatar</label>
                 <div className='  flex flex-col items-center h-32 p-4 border border-dashed rounded-md'>
                     <div className=' border border-gray-600 h-12 w-12 rounded-md flex items-center justify-center'>
-                        <img src={uploadIcon} alt="upload icon" />
+                        <img src={formData.avatar ? formData.avatar : uploadIcon} alt="upload icon" />
                     </div>
                     <input type="file" onChange={inputChange} name="avatar" id="avatar"  className='opacity-0 cursor-pointer'/>
                     <p className='-mt-4 text-gray-400'>Drag and drop or click to upload</p>
@@ -66,7 +63,7 @@ const Form = () => {
             <button onClick={submit} className='bg-[#F57261] py-3 rounded-lg w-full text-[#0C082B] font-bold text-xl z-[999] relative'>Generate My Ticket</button>
         </form>
 
-        <img className='relative z-50' src={avatar} alt="" />
+        {/* <img className='relative z-50' src={avatar} alt="" /> */}
     {/* <p> this is for name: {name} </p>
     <p> this is for email: {email} </p>
     <p> this is for github: {github} </p> */}
