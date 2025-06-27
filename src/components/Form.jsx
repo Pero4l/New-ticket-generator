@@ -23,10 +23,15 @@ const Form = ({formData, setFormData, isSubmitted, setIsSubmitted}) => {
         e.preventDefault();
         console.log('Form submitted:', formData);
 
+        if(!formData.name || !formData.email || !formData.github || !formData.avatar) {
+            alert("Please fill in all fields and upload an avatar.");
+            return;
+        }
+
         setIsSubmitted(true);
     }
 
-    console.log(formData.avatar);
+    
     
 
   return (
