@@ -20,7 +20,7 @@ const Ticket = ({formData}) => {
          <div className='md:mx-[100px] lg:mx-[400px] '>
          <img src={ticket} alt="" />
 
-              <div className='flex flex-col lg:gap-7 gap-3 relative bottom-[153px] px-7 lg:bottom-56 lg:px-20' >
+              <div className='flex flex-col lg:gap-7 gap-3 md:gap-8 relative bottom-[153px] md:bottom-[190px] px-7 lg:bottom-56 lg:px-20 md:px-20' >
 
                 <div>
                   <img src={LogoFull} alt="" />
@@ -38,7 +38,7 @@ const Ticket = ({formData}) => {
                   </div>
                 </div>
 
-                <div><h1 className='rotate-90 relative left-[155px] lg:left-[237px] lg:top-16 top-14 lg:text-2xl font-semibold'>#01689</h1></div>
+                <div><h1 className='rotate-90 relative left-[155px] lg:left-[237px] lg:top-16 md:left-[220px] md:top-10 top-14 lg:text-2xl font-semibold'>#01689</h1></div>
               </div>
          </div>
          
