@@ -36,12 +36,14 @@ const Form = ({formData, setFormData, isSubmitted, setIsSubmitted}) => {
         <form action="" className='w-full md:w-1/2 xl:w-[32%] mx-auto relative z-50'>
             <div className='flex flex-col gap-2 mb-6'>
                 <label htmlFor="avatar" className='text-xl'>Upload Avatar</label>
-                <div className='  flex flex-col items-center h-32 p-4 border border-dashed rounded-md'>
-                    <div className=' border border-gray-600 h-12 w-12 rounded-md flex items-center justify-center'>
+
+                <div className='  flex flex-col items-center h-44 p-4 border border-dashed rounded-md'>
+                    
+                    <div className=' mt-5 border border-gray-600 h-12 w-12 rounded-md flex items-center justify-center'>
                         <img src={formData.avatar ? formData.avatar : uploadIcon} alt="upload icon" />
                     </div>
-                    <input type="file" onChange={inputChange} name="avatar" id="avatar"  className='opacity-0 cursor-pointer'/>
-                    <p className='-mt-4 text-gray-400'>Drag and drop or click to upload</p>
+                    <input type="file" onChange={inputChange} name="avatar" id="avatar"  className='opacity-0 cursor-pointer bg-gray-600 p-6'/>
+                    <p className='-mt-10 text-gray-400'>Drag and drop or click to upload</p>
                 </div>
                 <div className='flex gap-2 text-gray-400'>
                     <img src={infoIcon} alt="" />

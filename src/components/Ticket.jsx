@@ -12,18 +12,15 @@ const Ticket = ({formData}) => {
 
   return (
     <>
-      {/* <div className=' mx-auto flex justify-center'>
-              <img src={LogoFull} alt="logo"  className='mb-14'/>
-          </div> */}
 
     <div className='px-5'>
-         <h1 className='mb-4 text-3xl md:text-5xl md:w-4/5 xl:w-3/5 2xl:w-3/6 mx-auto text-center font-bold'>Congrats, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37362] to-[#FFFFFF]">{formData.name} </span> Your ticket is ready.</h1>
-         <p className='text-center text-lg w-full md:w-2/3 lg:w-3/6 xl:w-[30%] 2xl:w-[26%] mx-auto mb-16'>We've emailed your ticket to <span className='text-[#E16151]'>{formData.email} </span>and will send updates in the run up to the event.</p>
+         <h1 className='mb-10 text-3xl md:text-5xl md:w-4/5 xl:w-3/5 2xl:w-3/6 mx-auto text-center font-bold'>Congrats, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F37362] to-[#FFFFFF]">{formData.name} </span> Your ticket is ready.</h1>
+         <p className='text-center text-lg lg:text-xl w-full md:w-2/3 lg:w-3/6 xl:w-[30%] 2xl:w-[26%] mx-auto mb-20 lg:mb-32'>We've emailed your ticket to <span className='text-[#E16151]'>{formData.email} </span>and will send updates in the run up to the event.</p>
 
-         <div className='lg:mx-[400px] '>
+         <div className='md:mx-[100px] lg:mx-[400px] '>
          <img src={ticket} alt="" />
 
-              <div className='flex flex-col lg:gap-10 gap-2 relative bottom-[132px] px-5 lg:bottom-56 lg:px-20' >
+              <div className='flex flex-col lg:gap-7 gap-3 relative bottom-[153px] px-7 lg:bottom-56 lg:px-20' >
 
                 <div>
                   <img src={LogoFull} alt="" />
@@ -32,7 +29,7 @@ const Ticket = ({formData}) => {
 
                 <div>
                   <div className='flex items-center gap-2 lg:gap-4'>
-                    <img className='lg:w-16 w-10 rounded-lg' src={formData.avatar} alt="" />
+                    <img className='lg:w-10 w-10 rounded-lg' src={formData.avatar} alt="" />
 
                     <div className=''>
                       <h1 className='text-xl lg:text-2xl font-bold'>{formData.name} </h1>
@@ -41,7 +38,7 @@ const Ticket = ({formData}) => {
                   </div>
                 </div>
 
-                {/* <div><h1 className='rotate-90'>#01689</h1></div> */}
+                <div><h1 className='rotate-90 relative left-[155px] lg:left-[237px] lg:top-16 top-14 lg:text-2xl font-semibold'>#01689</h1></div>
               </div>
          </div>
          
