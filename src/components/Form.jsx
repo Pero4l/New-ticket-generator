@@ -26,7 +26,11 @@ const Form = ({formData, setFormData, isSubmitted, setIsSubmitted}) => {
         if(!formData.name || !formData.email || !formData.github || !formData.avatar) {
             alert("Please fill in all fields and upload an avatar.");
             return;
+
+            
         }
+
+        alert("Form submitted successfully!");
 
         setIsSubmitted(true);
     }
