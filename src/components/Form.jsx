@@ -37,7 +37,7 @@ const Form = ({formData, setFormData, isSubmitted, setIsSubmitted}) => {
     function toastMessage(e){
         e.preventDefault();
         if(!formData.name || !formData.email || !formData.github || !formData.avatar) {
-            toast.error("Please fill in all fields and upload an avatar.");
+            toast.error("Please fill in all fields and upload a Image.");
             return;
         }
         console.log('Form submitted:', formData);
@@ -90,8 +90,6 @@ const Form = ({formData, setFormData, isSubmitted, setIsSubmitted}) => {
                 </div>
                 <button onClick={toastMessage} className='bg-[#F57261] py-3 rounded-lg w-full text-[#0C082B] font-bold text-xl z-[999] relative'>Generate My Ticket</button>
             </form>
-
-            {/* Add ToastContainer here */}
             <ToastContainer />
         </div>
     )
